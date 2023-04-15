@@ -1,16 +1,17 @@
 import axios, { AxiosInstance } from 'axios';
-import { API_KEY, BASE_URL } from '../settings/config';
+import {  BASE_URL, CYBERSOFT_TOKEN } from '../settings/config';
+import { LocalStorage } from '../../common/enum/localstorage';
+import { User } from '../../redux/user/user.model';
 
 const api: AxiosInstance = axios.create({
   baseURL: BASE_URL,
-  params: {
-    api_key: API_KEY
-  },
 });
 
 api.interceptors.request.use(
   config => {
-    config.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+    const useLogin: User = JSON.parse(localStorage.getItem(LocalStorage.UserLogin) || '{}');
+    config.headers['Authorization'] = 'Bearer ' + useLogin?.accessToken;
+    config.headers['TokenCybersoft']= CYBERSOFT_TOKEN;
     return config;
   },
   error => {
@@ -20,11 +21,11 @@ api.interceptors.request.use(
 
 api.interceptors.response.use(
   response => {
-    console.log(response);
     return response;
   },
   error => {
     if (error.response.status === 401) {
+      localStorage.clear()
       window.location.href = '/login';
     }
     return Promise.reject(error);

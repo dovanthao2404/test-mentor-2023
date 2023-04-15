@@ -1,0 +1,325 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 3200" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <style>
+        svg {
+            font-size: 16px;
+        }
+
+        /**
+        * Adaptive media queries till 2400px wide generated via https://codepen.io/jakobud/pen/vmKLYb
+        * Values: $map: (1200px: 21.33px, 1600px: 16px, 2400px: 10.667px, 3200: 8px, 4200: 6.1px);
+        */
+
+        @media (min-width: 100px) {
+            svg {
+                font-size: calc(-170.7vw + 426.7px);
+            }
+        }
+
+        @media (min-width: 150px) {
+            svg {
+                font-size: calc(-85.3vw + 298.6px);
+            }
+        }
+
+        @media (min-width: 200px) {
+            svg {
+                font-size: calc(-42.66vw + 213.32px);
+            }
+        }
+
+        @media (min-width: 300px) {
+            svg {
+                font-size: calc(-21.34vw + 149.36px);
+            }
+        }
+
+        @media (min-width: 400px) {
+            svg {
+                font-size: calc(-12.8vw + 115.2px);
+            }
+        }
+
+        @media (min-width: 500px) {
+            svg {
+                font-size: calc(-8.54vw + 93.9px);
+            }
+        }
+
+        @media (min-width: 600px) {
+            svg {
+                font-size: calc(-5.33vw + 74.64px);
+            }
+        }
+
+        @media (min-width: 800px) {
+            svg {
+                font-size: calc(-3.2vw + 57.6px);
+            }
+        }
+
+        @media (min-width: 1000px) {
+            svg {
+                font-size: calc(-2.135vw + 46.95px);
+            }
+        }
+
+        @media (min-width: 1200px) {
+            svg {
+                font-size: calc(-1.3325vw + 37.32px);
+            }
+        }
+
+        @media (min-width: 1600px) {
+            svg {
+                font-size: calc(-0.6667vw + 26.67px);
+            }
+        }
+
+        @media (min-width: 2400px) {
+            svg {
+                font-size: calc(-0.33337vw + 18.67px);
+            }
+        }
+
+        @media (min-width: 3200px) {
+            svg {
+                font-size: calc(-0.19vw + 14.08px);
+            }
+        }
+
+
+        rect:not([fill]) {
+            fill: url(#linear);
+        }
+
+        rect {
+            rx: 0.25em;
+        }
+
+        circle:not([fill]) {
+            fill: url(#linear);
+        }
+
+        line:not([fill]) {
+            stroke: url(#linear);
+        }
+
+        line {
+            stroke-width: 0.15em;
+        }
+    </style>
+
+    <defs>
+        <linearGradient id="linear" x1="0em" y1="0em" x2="100em" y2="10em" gradientUnits="userSpaceOnUse">
+            <stop offset=".10" stop-color="#f4f5f7">
+                <animate attributeName="offset" from="-.10" to="1.4" dur="2s" repeatCount="indefinite" />
+            </stop>
+            <stop offset=".15" stop-color="#e7e9ec">
+                <animate attributeName="offset" from="-.05" to="1.45" dur="2s" repeatCount="indefinite" />
+            </stop>
+            <stop offset=".20" stop-color="#f4f5f7">
+                <animate attributeName="offset" from="0" to="1.50" dur="2s" repeatCount="indefinite" />
+            </stop>
+        </linearGradient>
+    </defs>
+
+    
+    <style>
+        .dual-column {
+            display: none;
+        }
+
+        @media all and (min-width: 540px) {
+            .dual-column {
+                display: block;
+            }
+
+            .single-column {
+                display: none;
+            }
+
+            .fields-wide {
+                display: none;
+            }
+        }
+
+        @media all and (min-width: 980px) {
+            .fields-wide {
+                display: block;
+            }
+
+            .fields-narrow {
+                display: none;
+            }
+        }
+    </style>
+
+    <g class="single-column">
+        
+        <rect x="0em" y="0.5em" width="0.75em" height="0.75em"  rx="1"/>
+        <rect x="1em" y="0.5em" width="10em" height="0.75em"  rx="1"/>
+
+        
+        <rect x="calc(100% - 2em)" y="0.5em" width="2em" height="2em"  rx="1"/>
+        <rect x="calc(100% - 4.5em)" y="0.5em" width="2em" height="2em"  rx="1"/>
+        <rect x="calc(100% - 7em)" y="0.5em" width="2em" height="2em"  rx="1"/>
+        <rect x="calc(100% - 9.5em)" y="0.5em" width="2em" height="2em"  rx="1"/>
+
+        
+        <rect x="0em" y="4em" width="95%" height="1em"  rx="1"/>
+        <rect x="0em" y="5.75em" width="7em" height="1em"  rx="1"/>
+
+        
+        <rect x="0em" y="7.5em" width="2em" height="2em"  rx="1"/>
+        <rect x="2.5em" y="7.5em" width="2em" height="2em"  rx="1"/>
+        <rect x="5em" y="7.5em" width="2em" height="2em"  rx="1"/>
+
+        
+        <rect x="0em" y="10.75em" width="8em" height="2em"  rx="1"/>
+
+        
+        <rect x="0em" y="calc(14em + 0em)" width="8em" height="0.75em"  rx="1"/>
+        <rect x="0em" y="calc(14em + 2em)" width="95%" height="0.75em"  rx="1"/>
+        <rect x="0em" y="calc(14em + 3.5em)" width="95%" height="0.75em"  rx="1"/>
+        <rect x="0em" y="calc(14em + 5em)" width="15em" height="0.75em"  rx="1"/>
+
+        
+        <rect x="0em" y="22em" width="8em" height="0.75em"  rx="1"/>
+        <rect x="0em" y="23.5em" width="10em" height="8em"  rx="1"/>
+
+        <g class="fields-wide">
+            
+            <rect x="calc(0% + 1em)" y="calc(35em + 0em)" width="5em" height="0.75em"  rx="1"/>
+            <circle cx="calc(37% + 1em)" cy="calc(35em + 0.5em)" r="0.75em" />
+            <rect x="calc(37% + 3.5em)" y="calc(35em + 0em)" width="40%" height="0.75em"  rx="1"/>
+
+            
+            <rect x="calc(0% + 1em)" y="calc(35em + 2.75em)" width="5em" height="0.75em" opacity="0.8"  rx="1"/>
+            <circle cx="calc(37% + 1em)" cy="calc(35em + 3.25em)" r="0.75em" opacity="0.8" />
+            <rect x="calc(37% + 3.5em)" y="calc(35em + 2.75em)" width="40%" height="0.75em" opacity="0.8"  rx="1"/>
+
+            
+            <rect x="calc(0% + 1em)" y="calc(35em + 5.5em)" width="5em" height="0.75em" opacity="0.6"  rx="1"/>
+            <rect x="calc(37% + 0em)" y="calc(35em + 5.5em)" width="30%" height="0.75em" opacity="0.6"  rx="1"/>
+
+            
+            <rect x="calc(0% + 1em)" y="calc(35em + 8.25em)" width="5em" height="0.75em" opacity="0.4"  rx="1"/>
+            <rect x="calc(37% + 0em)" y="calc(35em + 8.25em)" width="30%" height="0.75em" opacity="0.4"  rx="1"/>
+
+            
+            <rect x="calc(0% + 1em)" y="calc(35em + 11em)" width="5em" height="0.75em" opacity="0.2"  rx="1"/>
+            <rect x="calc(37% + 0em)" y="calc(35em + 11em)" width="30%" height="0.75em" opacity="0.2"  rx="1"/>
+        </g>
+
+    </g>
+
+    <g class="dual-column">
+        
+        <rect x="0em" y="0.625em" width="0.75em" height="0.75em"  rx="1"/>
+        <rect x="1em" y="0.625em" width="10em" height="0.75em"  rx="1"/>
+
+        
+        <rect x="0em" y="3em" width="15em" height="1em"  rx="1"/>
+
+        
+        <rect x="0em" y="5em" width="2em" height="2em"  rx="1"/>
+        <rect x="2.5em" y="5em" width="2em" height="2em"  rx="1"/>
+        <rect x="5em" y="5em" width="2em" height="2em"  rx="1"/>
+        <rect x="7.5em" y="5em" width="2em" height="2em"  rx="1"/>
+
+        
+        <rect x="0em" y="calc(8.5em + 0em)" width="8em" height="0.75em"  rx="1"/>
+        <rect x="0em" y="calc(8.5em + 2em)" width="62%" height="0.75em"  rx="1"/>
+        <rect x="0em" y="calc(8.5em + 3.5em)" width="62%" height="0.75em"  rx="1"/>
+        <rect x="0em" y="calc(8.5em + 5em)" width="15em" height="0.75em"  rx="1"/>
+
+        
+        <rect x="0em" y="18em" width="8em" height="0.75em"  rx="1"/>
+        <rect x="0em" y="19.5em" width="10em" height="8em"  rx="1"/>
+
+        
+        <rect x="0em" y="31em" width="8em" height="0.75em"  rx="1"/>
+        <rect x="0em" y="33em" width="3em" height="0.75em"  rx="1"/>
+        <rect x="calc(3.5em + 0em)" y="32.5em" width="2em" height="2em"  rx="1"/>
+        <rect x="calc(3.5em + 2.5em)" y="32.5em" width="2em" height="2em"  rx="1"/>
+        <rect x="calc(3.5em + 5em)" y="32.5em" width="2em" height="2em"  rx="1"/>
+
+        
+        <circle cx="1em" cy="38.3em" r="1em" />
+        <rect x="2.5em" y="37.5em" width="8em" height="0.75em"  rx="1"/>
+        <rect x="11em" y="37.5em" width="3em" height="0.75em"  rx="1"/>
+        <rect x="2.5em" y="calc(37.5em + 2em)" width="calc(62% - 2.5em)" height="0.75em"  rx="1"/>
+        <rect x="2.5em" y="calc(37.5em + 3.5em)" width="calc(62% - 2.5em)" height="0.75em"  rx="1"/>
+        <rect x="2.5em" y="calc(37.5em + 5em)" width="15em" height="0.75em"  rx="1"/>
+
+        
+        <circle cx="1em" cy="47em" r="1em" />
+        <rect x="2.5em" y="46em" width="calc(62% - 2.5em)" height="2em"  rx="1"/>
+
+        <g class="sidebar">
+            
+            <rect x="calc(100% - 2em)" y="0em" width="2em" height="2em"  rx="1"/>
+            <rect x="calc(100% - 4.5em)" y="0em" width="2em" height="2em"  rx="1"/>
+            <rect x="calc(100% - 7em)" y="0em" width="2em" height="2em"  rx="1"/>
+            <rect x="calc(100% - 9.5em)" y="0em" width="2em" height="2em"  rx="1"/>
+
+            
+            <rect x="66%" y="calc(3em + 0em)" width="8em" height="2em"  rx="1"/>
+
+            <rect x="calc(66% + 1em)" y="calc(3em + 3.5em)" width="5em" height="0.75em"  rx="1"/>
+
+            <g class="fields-narrow">
+                
+                <rect x="calc(66% + 1em)" y="calc(3em + 6.25em + 0em)" width="5em" height="0.75em"  rx="1"/>
+                <circle cx="calc(66% + 2em)" cy="calc(3em + 6.25em + 2.25em)" r="0.75em" />
+                <rect x="calc(66% + 3.5em)" y="calc(3em + 6.25em + 1.75em)" width="calc(31% - 2.5em)" height="0.75em"  rx="1"/>
+
+                
+                <rect x="calc(66% + 1em)" y="calc(3em + 6.25em + 4.25em)" width="5em" height="0.75em" opacity="0.8"  rx="1"/>
+                <circle cx="calc(66% + 2em)" cy="calc(3em + 6.25em + 6.5em)" r="0.75em" opacity="0.8" />
+                <rect x="calc(66% + 3.5em)" y="calc(3em + 6.25em + 6em)" width="calc(31% - 2.5em)" height="0.75em"
+                    opacity="0.8"  rx="1"/>
+
+                
+                <rect x="calc(66% + 1em)" y="calc(3em + 6.25em + 8.5em)" width="5em" height="0.75em" opacity="0.6"  rx="1"/>
+                <rect x="calc(66% + 1em)" y="calc(3em + 6.25em + 10.25em)" width="31%" height="0.75em" opacity="0.6"  rx="1"/>
+
+                
+                <rect x="calc(66% + 1em)" y="calc(3em + 6.25em + 12.75em)" width="5em" height="0.75em" opacity="0.4"  rx="1"/>
+                <rect x="calc(66% + 1em)" y="calc(3em + 6.25em + 14.5em)" width="31%" height="0.75em" opacity="0.4"  rx="1"/>
+
+                
+                <rect x="calc(66% + 1em)" y="calc(3em + 6.25em + 17em)" width="5em" height="0.75em" opacity="0.2"  rx="1"/>
+                <rect x="calc(66% + 1em)" y="calc(3em + 6.25em + 18.75em)" width="31%" height="0.75em" opacity="0.2"  rx="1"/>
+            </g>
+
+            <g class="fields-wide">
+                
+                <rect x="calc(66% + 1em)" y="calc(3em + 6.25em + 0em)" width="5em" height="0.75em"  rx="1"/>
+                <circle cx="calc(80% + 1em)" cy="calc(3em + 6.25em + 0.5em)" r="0.75em" />
+                <rect x="calc(80% + 3.5em)" y="calc(3em + 6.25em + 0em)" width="12%" height="0.75em"  rx="1"/>
+
+                
+                <rect x="calc(66% + 1em)" y="calc(3em + 6.25em + 2.75em)" width="5em" height="0.75em" opacity="0.8"  rx="1"/>
+                <circle cx="calc(80% + 1em)" cy="calc(3em + 6.25em + 3.25em)" r="0.75em" opacity="0.8" />
+                <rect x="calc(80% + 3.5em)" y="calc(3em + 6.25em + 2.75em)" width="12%" height="0.75em" opacity="0.8"  rx="1"/>
+
+                
+                <rect x="calc(66% + 1em)" y="calc(3em + 6.25em + 5.5em)" width="5em" height="0.75em" opacity="0.6"  rx="1"/>
+                <rect x="calc(80% + 0em)" y="calc(3em + 6.25em + 5.5em)" width="8%" height="0.75em" opacity="0.6"  rx="1"/>
+
+                
+                <rect x="calc(66% + 1em)" y="calc(3em + 6.25em + 8.25em)" width="5em" height="0.75em" opacity="0.4"  rx="1"/>
+                <rect x="calc(80% + 0em)" y="calc(3em + 6.25em + 8.25em)" width="8%" height="0.75em" opacity="0.4"  rx="1"/>
+
+                
+                <rect x="calc(66% + 1em)" y="calc(3em + 6.25em + 11em)" width="5em" height="0.75em" opacity="0.2"  rx="1"/>
+                <rect x="calc(80% + 0em)" y="calc(3em + 6.25em + 11em)" width="8%" height="0.75em" opacity="0.2"  rx="1"/>
+            </g>
+
+        </g>
+    </g>
+
+
+
+</svg>
