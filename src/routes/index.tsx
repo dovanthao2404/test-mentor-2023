@@ -1,7 +1,10 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, RouteObject, createBrowserRouter } from "react-router-dom";
 import Login from "../pages/Login/Login";
+import PrivateRoute from "./PrivateRoute";
+import LoggedTemplate from "../template/LoggedTemplate";
+import Dashboard from "../pages/Dashboard";
 
-export const router = createBrowserRouter([
+const routers: RouteObject[] = [
     {
         path: "/",
         element: <Login />,
@@ -10,30 +13,21 @@ export const router = createBrowserRouter([
         path: "/login",
         element: <Login />,
     },
-    //   {
-    //     path: "/detail",
-    //     element: <Detail />,
-    //   },
-    //   {
-    //     path: "/admin",
-    //     element: <PrivateRoute element={AdminTemplate }/>,
-    //     children: [
-    //       {
-    //         path: '/admin',
-    //         element: <DashBoard/>
-    //       },
-    //       {
-    //         path: '/admin/dashboard',
-    //         element: <DashBoard/>
-    //       },
-    //       {
-    //         path: '/admin/users',
-    //         element: <Users/>
-    //       }
-    //     ]
-    //   },
-    //   {
-    //     path: "*",
-    //     element: <NotFoundTemplate/>
-    //   }
-]);
+
+    {
+        path: "/",
+        element: <PrivateRoute element={LoggedTemplate} />,
+        children: [
+            {
+                path: '/dashboard',
+                element: <Dashboard />
+            },
+        ]
+    },
+    {
+        path: "*",
+        element: <Navigate to="/dashboard" replace />
+    }
+];
+
+export const router = createBrowserRouter(routers);
