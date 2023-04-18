@@ -15,6 +15,7 @@ import {
 } from '../../../redux/project/project.model';
 import { Status } from '../ModalUpdateTask';
 import { toSlug } from '../../../utils/slug/slug';
+import { unwrapResult } from '@reduxjs/toolkit';
 
 const { Option } = Select;
 
@@ -102,7 +103,8 @@ const ModalBodyRight: FC<ModalBodyRightProps> = (props): JSX.Element => {
       statusId: item.statusId,
     };
     try {
-      await dispatch(updateStatusTask(info));
+      const response = await dispatch(updateStatusTask(info));
+      unwrapResult(response);
       id && dispatch(getProjectById(id.toString()));
     } catch (err) {
       setTaskDetailReal({

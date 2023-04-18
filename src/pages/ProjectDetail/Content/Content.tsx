@@ -16,6 +16,7 @@ import type {
 } from '../../../redux/project/project.model';
 import TaskDetail from '../TaskDetail';
 import { DropResult } from 'react-beautiful-dnd';
+import { unwrapResult } from '@reduxjs/toolkit';
 
 interface ContentProps {
   arrUserFilter: number[];
@@ -71,12 +72,13 @@ const Content: FC<ContentProps> = (props) => {
       setListTask(listTaskTemp);
 
       try {
-        await dispatch(
+        const response = await dispatch(
           updateStatusTask({
             taskId: tempSource.taskId,
             statusId: destination.droppableId,
           }),
         );
+        unwrapResult(response);
         id && dispatch(getProjectById(id));
       } catch (err) {
         setListTask(listTaskPrev);

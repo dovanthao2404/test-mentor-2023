@@ -53,7 +53,8 @@ const ProjectDetail: FC = () => {
           const result = unwrapResult(response);
           if (result) {
             if (
-              (result.creator && result.creator.id !== userLogin.id) ||
+              result.creator &&
+              result.creator.id !== userLogin.id &&
               !result.members.find((item) => item.userId != userLogin.id)
             ) {
               navigate('/');
@@ -96,8 +97,8 @@ const ProjectDetail: FC = () => {
 
   const handleSubmit = async (taskRequest: CreateTaskRequest): Promise<void> => {
     try {
-      const reponse = await dispatch(createTask(taskRequest));
-      unwrapResult(reponse);
+      const response = await dispatch(createTask(taskRequest));
+      unwrapResult(response);
 
       dispatch(showMessage(new Message('success', MessageEnum.S009)));
       taskRequest.projectId && dispatch(getProjectById(taskRequest.projectId.toString()));

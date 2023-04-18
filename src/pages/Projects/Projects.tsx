@@ -119,8 +119,8 @@ const Projects: FC = () => {
 
   const handleSubmit = async (taskRequest: CreateTaskRequest): Promise<void> => {
     try {
-      const reponse = await dispatch(createTask(taskRequest));
-      unwrapResult(reponse);
+      const response = await dispatch(createTask(taskRequest));
+      unwrapResult(response);
 
       dispatch(showMessage(new Message('success', MessageEnum.S009)));
       dispatch(getProjects());

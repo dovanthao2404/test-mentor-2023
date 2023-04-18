@@ -9,6 +9,7 @@ import { SignInRequest } from '../../redux/user/user.model';
 import { loginAction } from '../../redux/user/actions';
 import { MessagePayload, showMessage } from '../../redux/message/slice';
 import { MessageEnum } from '../../common/enum/message';
+import { unwrapResult } from '@reduxjs/toolkit';
 
 function Login(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -39,16 +40,15 @@ function Login(): JSX.Element {
         passWord: values.passWord,
       };
       try {
-        await dispatch(loginAction(signInRequest));
+        const response = await dispatch(loginAction(signInRequest));
+        unwrapResult(response);
         const message: MessagePayload = {
           content: MessageEnum.S001,
           type: 'success',
         };
         dispatch(showMessage(message));
         navigate('/');
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     },
   });
 
