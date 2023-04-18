@@ -49,7 +49,7 @@ const ModalBodyLeft: FC<ModalBodyLeftProps> = (props) => {
         listUserAsign: taskDetailReal?.assigness?.map((item) => item.id),
         taskName: taskName,
       };
-      handleUpdateTask(info, callBackUpdateTask);
+      handleUpdateTask(info);
     } else {
       setInitComp(false);
     }
