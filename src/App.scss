@@ -78,8 +78,7 @@ a {
   justify-content: space-between;
   max-width: 100%;
   overflow: hidden;
-  transition: background-color 0.2s ease-in-out 0s,
-    border-color 0.2s ease-in-out 0s;
+  transition: background-color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s;
   overflow-wrap: break-word;
   vertical-align: top;
   pointer-events: auto;
@@ -119,8 +118,7 @@ a {
   border-width: 0px;
   border-radius: 3px;
   text-decoration: none;
-  transition: background 0.1s ease-out 0s,
-    box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38) 0s;
+  transition: background 0.1s ease-out 0s, box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38) 0s;
   padding: 0px 10px;
   outline: none;
 }
@@ -142,7 +140,19 @@ a {
 .text-center {
   text-align: center;
 }
+.text-right {
+  text-align: end;
+}
+.mb-3 {
+  margin-bottom: 1rem;
+}
+.mr-1 {
+  margin-right: 0.25rem;
+}
 .my-2 {
-  margin-bottom: .5rem;
-  margin-top: .5rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+.w-100 {
+  width: 100%;
 }

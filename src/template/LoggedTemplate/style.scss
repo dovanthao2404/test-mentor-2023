@@ -1,0 +1,35 @@
+.logged-template-common {
+  .ant-layout-header {
+    height: 64px;
+    box-sizing: border-box;
+    border-bottom: 2px solid #ddd;
+  }
+  .ant-layout-sider {
+    border-right: 2px solid #ddd;
+  }
+  .ant-layout.ant-layout-has-sider {
+    height: 100%;
+  }
+  .logo-jira-common {
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin: auto;
+    padding: 15px 0;
+    box-sizing: unset;
+    cursor: pointer;
+  }
+  .header-avatar {
+    display: block;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  @media screen and (max-width: 767px) {
+    .ant-layout-has-sider > aside.ant-layout-sider-collapsed {
+      margin-left: -80px !important;
+    }
+    .ant-table-pagination {
+      flex-wrap: nowrap;
+    }
+  }
+}

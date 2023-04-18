@@ -1,0 +1,93 @@
+.profile {
+  padding: 0 1rem;
+  .box-button {
+    padding-top: 1rem;
+    width: 250px;
+    display: flex;
+    @media screen and (max-width: 540px) {
+      width: auto;
+    }
+    button {
+      margin-right: 1rem;
+    }
+    span {
+      display: block;
+    }
+
+    .anticon-plus {
+      margin: 0;
+    }
+    .btn-icon {
+      display: none;
+      @media screen and (max-width: 540px) {
+        display: block;
+      }
+    }
+    p {
+      @media screen and (max-width: 540px) {
+        display: none;
+      }
+    }
+  }
+  .avatar-member {
+    span {
+      position: unset;
+      left: 0;
+      transform-origin: 0 center;
+    }
+    img {
+      display: block;
+      width: 32px;
+      height: 32px;
+      position: relative;
+      top: 0;
+    }
+  }
+  .profile-form {
+    display: flex;
+    padding: 1rem 0;
+    .input-search {
+      width: 250px;
+    }
+  }
+
+  .table-project {
+    overflow: auto;
+    .ant-table-wrapper {
+      .ant-table-content {
+        table {
+          background-color: white;
+        }
+      }
+    }
+    .table-content {
+      td {
+        padding: 0.5rem 0;
+      }
+    }
+  }
+  .table-action {
+    display: flex;
+    gap: 8px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .profile {
+    .table-project {
+      .ant-table {
+        overflow: auto;
+      }
+    }
+  }
+}
+.avatar-member {
+  span {
+    position: unset;
+    img {
+      width: 32px;
+      height: 32px;
+      display: block;
+    }
+  }
+}

@@ -1,52 +1,53 @@
-import { useFormik } from "formik";
-import * as yup from "yup";
+import { useFormik } from 'formik';
+import * as yup from 'yup';
 
-import { Link, useNavigate } from "react-router-dom";
-import "./style.scss";
-import { useAppDispatch } from "../../redux/configureStore";
-import { BuildMessage } from "../../utils/build-message/BuildMessage";
-import { SignInRequest } from "../../redux/user/user.model";
-import { loginAction } from "../../redux/user/actions";
-import { MessagePayload, showMessage } from "../../redux/message/slice";
-import { MessageEnum } from "../../common/enum/message";
+import { Link, useNavigate } from 'react-router-dom';
+import './style.scss';
+import { useAppDispatch } from '../../redux/configureStore';
+import { BuildMessage } from '../../utils/build-message/BuildMessage';
+import { SignInRequest } from '../../redux/user/user.model';
+import { loginAction } from '../../redux/user/actions';
+import { MessagePayload, showMessage } from '../../redux/message/slice';
+import { MessageEnum } from '../../common/enum/message';
+
 function Login(): JSX.Element {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const schema = yup.object().shape({
     email: yup
       .string()
-      .required(BuildMessage.buildMessageById('V001', ["Email"]))
-      .email(BuildMessage.buildMessageById('V002', ["Email"])),
+      .required(BuildMessage.buildMessageById('V001', ['Email']))
+      .email(BuildMessage.buildMessageById('V002', ['Email'])),
 
     passWord: yup
       .string()
-      .required(BuildMessage.buildMessageById('V001', ["Password"]))
-      .min(8, BuildMessage.buildMessageById('V003', ["Password", "8", "32"]))
-      .max(32, BuildMessage.buildMessageById('V003', ["Password", "8", "32"])),
+      .required(BuildMessage.buildMessageById('V001', ['Password']))
+      .min(8, BuildMessage.buildMessageById('V003', ['Password', '8', '32']))
+      .max(32, BuildMessage.buildMessageById('V003', ['Password', '8', '32'])),
   });
 
   const formik = useFormik({
     initialValues: {
       email: '',
-      passWord: ''
+      passWord: '',
     },
     validationSchema: schema,
 
     onSubmit: async (values) => {
       const signInRequest: SignInRequest = {
         email: values.email,
-        passWord: values.passWord
+        passWord: values.passWord,
       };
       try {
         await dispatch(loginAction(signInRequest));
         const message: MessagePayload = {
           content: MessageEnum.S001,
-          type: 'success'
-      };
-      dispatch(showMessage(message));
+          type: 'success',
+        };
+        dispatch(showMessage(message));
         navigate('/');
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
     },
   });
@@ -70,7 +71,7 @@ function Login(): JSX.Element {
             {formik.touched.email && formik.errors.email ? (
               <span className="text-danger">{formik.errors.email}</span>
             ) : (
-              " "
+              ' '
             )}
           </div>
           <div className="form-group-login">
@@ -87,7 +88,7 @@ function Login(): JSX.Element {
             {formik.touched.passWord && formik.errors.passWord ? (
               <span className="text-danger">{formik.errors.passWord}</span>
             ) : (
-              " "
+              ' '
             )}
           </div>
           <button type="submit" className="btn-submit-login-template btn-login">
