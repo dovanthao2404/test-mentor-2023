@@ -100,7 +100,7 @@ const App: React.FC = () => {
                 onError={({ currentTarget }): void => {
                   currentTarget.onerror = null;
                   currentTarget.src =
-                    'https://khoinguonsangtao.vn/wp-content/uploads/2022/10/hinh-anh-rimuru.jpg';
+                    'https://w7.pngwing.com/pngs/205/731/png-transparent-default-avatar-thumbnail.png';
                 }}
                 alt="avatar"
                 className="header-avatar"
