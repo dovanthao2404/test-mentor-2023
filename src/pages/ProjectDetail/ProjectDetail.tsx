@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 
 import './style.scss';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../redux/configureStore';
 import {
   assignUserToProject,
@@ -41,13 +41,24 @@ const ProjectDetail: FC = () => {
   const [arrUserFilterFirst, setArrUserFilterFirst] = useState<number[]>([]);
   const [valueSearch, setValueSearch] = useState<string>('');
   const { id } = useParams();
+  const { userLogin } = useAppSelector((state) => state.users);
+  const navigate = useNavigate();
 
   useEffect(() => {
     (async (): Promise<void> => {
       if (id) {
         try {
           dispatch(showLoading());
-          await dispatch(getProjectById(id));
+          const response = await dispatch(getProjectById(id));
+          const result = unwrapResult(response);
+          if (result) {
+            if (
+              (result.creator && result.creator.id !== userLogin.id) ||
+              !result.members.find((item) => item.userId != userLogin.id)
+            ) {
+              navigate('/');
+            }
+          }
         } catch (err) {
           dispatch(showMessage(new Message('warning', MessageEnum.E003)));
         } finally {
