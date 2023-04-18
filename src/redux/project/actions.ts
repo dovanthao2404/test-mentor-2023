@@ -24,7 +24,7 @@ export const getProjects = createAsyncThunk(
   async (_, { rejectWithValue, dispatch, getState }) => {
     try {
       dispatch(showLoading());
-      const response = await ProjectService.getAll('');
+      const response = await ProjectService.getAll();
       const state = getState() as RootState;
       const { id } = state.users.userLogin;
       let resultsTemp: ProjectResponse[] = [...response.content];

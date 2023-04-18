@@ -19,7 +19,7 @@ import {
 import api from '../../utils/interceptors';
 
 export class ProjectService {
-  static async getAll(keyword: string): Promise<BaseApiResponse<ProjectResponse[]>> {
+  static async getAll(): Promise<BaseApiResponse<ProjectResponse[]>> {
     return (await api.get('Project/getAllProject'))?.data;
   }
 
