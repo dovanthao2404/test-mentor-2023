@@ -8,6 +8,7 @@ import { hideDrawer } from '../../../redux/drawer/slice';
 import { useDispatch } from 'react-redux';
 import { Button, Space } from 'antd';
 import { ProjectResponse, UpdateProjectRequest } from '../../../redux/project/project.model';
+import { BuildMessage } from '../../../utils/build-message/BuildMessage';
 interface ProjectTableProps {
   project: ProjectResponse;
   handleUpdateProject: (a: UpdateProjectRequest) => void;
@@ -57,7 +58,10 @@ const FormUpdateProject: FC<ProjectTableProps> = ({ project, handleUpdateProject
     if (!value) {
       setState({
         ...state,
-        errors: { ...state.errors, [name]: 'Project name is required!' },
+        errors: {
+          ...state.errors,
+          [name]: BuildMessage.buildMessageById('V001', ['Project name']),
+        },
       });
       return false;
     } else {
@@ -81,8 +85,8 @@ const FormUpdateProject: FC<ProjectTableProps> = ({ project, handleUpdateProject
     let isValid = true;
     let messageProjectName = '';
     if (!state.values.projectName) {
-      messageProjectName = 'Project name is required!';
-      isValid = false;
+      (messageProjectName = BuildMessage.buildMessageById('V001', ['Project name'])),
+        (isValid = false);
     }
     setState({
       ...state,
