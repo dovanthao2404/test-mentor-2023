@@ -20,4 +20,6 @@ export enum MessageEnum {
   E001 = 'You can not assign this project!',
   E002 = "You don't have permission",
   E003 = 'An unknown error',
+  E004 = 'Project not found!',
+  E005 = 'Task it not found!',
 }

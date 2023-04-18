@@ -61,7 +61,13 @@ const ProjectDetail: FC = () => {
             }
           }
         } catch (err) {
-          dispatch(showMessage(new Message('warning', MessageEnum.E003)));
+          const error = err as AxiosError;
+          if (error.response?.status === 404) {
+            dispatch(showMessage(new Message('warning', MessageEnum.E004)));
+          } else {
+            dispatch(showMessage(new Message('error', MessageEnum.E003)));
+          }
+          navigate('/');
         } finally {
           dispatch(hideLoading());
         }

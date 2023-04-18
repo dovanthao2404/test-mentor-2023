@@ -16,9 +16,10 @@ import { Message } from '../../../utils/message/Message';
 import { MessageEnum } from '../../../common/enum/message';
 import { showMessage } from '../../../redux/message/slice';
 import { useAppDispatch } from '../../../redux/configureStore';
-import { getTaskDetailById } from '../../../redux/project/actions';
+import { getProjectById, getTaskDetailById } from '../../../redux/project/actions';
 import { showLoading } from '../../../redux/loading/slice';
 import { Task, TaskDetail as TaskDetailType } from '../../../redux/project/project.model';
+import { unwrapResult } from '@reduxjs/toolkit';
 interface TaskDetailProps {
   task: TaskDetailType;
   taskListDetail: Task;
@@ -91,7 +92,6 @@ const TaskDetail: FC<TaskDetailProps> = (props) => {
   const handleDeleteTask = async (e): Promise<void> => {
     e.stopPropagation();
 
-    const prevProject = [...listTask];
     const listItemByStatusCurrent = [...taskListDetail?.lstTaskDeTail];
 
     const indexItemRemove = listItemByStatusCurrent?.findIndex(
@@ -121,8 +121,19 @@ const TaskDetail: FC<TaskDetailProps> = (props) => {
           message.type = 'error';
         }
       }
+      dispatch(getProjectById(task.projectId.toString()));
       dispatch(showMessage(message));
-      setListTask(prevProject);
+    }
+  };
+
+  const handleOpenUpdateTask = async (): Promise<void> => {
+    try {
+      const response = await dispatch(getTaskDetailById(task.taskId.toString()));
+      unwrapResult(response);
+    } catch (err) {
+      dispatch(getProjectById(task.projectId.toString()));
+      dispatch(showMessage(new Message('warning', MessageEnum.E005)));
+      setOpenUpdateTask(false);
     }
   };
 
@@ -132,7 +143,7 @@ const TaskDetail: FC<TaskDetailProps> = (props) => {
       onClick={(): void => {
         setOpenUpdateTask(true);
         dispatch(showLoading());
-        dispatch(getTaskDetailById(task.taskId.toString()));
+        handleOpenUpdateTask();
       }}
     >
       <div className="task-header">
